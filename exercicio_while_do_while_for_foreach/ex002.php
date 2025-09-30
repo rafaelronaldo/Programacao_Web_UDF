@@ -1,5 +1,5 @@
-<form action="ex002.php"method="POST">
-    Digite um número <input type="number"name="numero">
+<form action="ex002.php" method="POST">
+    Digite um número <input type="number" name="numero">
     <button type="submit">Enviar</button>
 </form>
 
@@ -8,4 +8,5 @@
     $contador = 1;
     while ($contador <= $numero) {
         print("$contador ");
+        $contador++;
     }
