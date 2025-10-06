@@ -1,5 +1,5 @@
 <?php
-for ($i = 1; $i <= 10; $i++) {
-    $quadrado = $i * $i;
-    echo "O quadrado de $i é $quadrado<br>";
+for ($contador = 1; $contador <= 10; $contador++) {
+    $quadrado = $contador * $contador;
+    print("O quadrado de $contador é $quadrado");
 }
