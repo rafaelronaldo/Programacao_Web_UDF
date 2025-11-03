@@ -83,10 +83,11 @@
   </div>
 </nav>
 
-    <div class="container m3-3">  
+    <div class="container mt-3">  
         <div class="row">
             <div class="col">
                 <?php
+                  include('config.php');
                     switch (@$_REQUEST['page']) {
                         // funcionário
                         case 'cadastrar-funcionario':
@@ -162,8 +163,6 @@
                             print("<h1>Seja bem vindo ao sistema da NewCar</h1");
 
                     }
-                  
-
                 ?>
             </div>
         </div>

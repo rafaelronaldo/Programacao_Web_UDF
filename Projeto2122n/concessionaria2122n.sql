@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema concessionaria2122n
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema mydb
+-- Schema concessionaria2122n
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `concessionaria2122n` DEFAULT CHARACTER SET utf8 ;
+USE `concessionaria2122n` ;
 
 -- -----------------------------------------------------
--- Table `mydb`.`cliente`
+-- Table `concessionaria2122n`.`cliente`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`cliente` (
+CREATE TABLE IF NOT EXISTS `concessionaria2122n`.`cliente` (
   `id_cliente` INT NOT NULL AUTO_INCREMENT,
   `nome_cliente` VARCHAR(100) NOT NULL,
   `cpf_cliente` CHAR(11) NULL,
@@ -29,14 +29,14 @@ CREATE TABLE IF NOT EXISTS `mydb`.`cliente` (
   `endereco_cliente` VARCHAR(100) NULL,
   `dt_nasc_cliente` DATE NULL,
   PRIMARY KEY (`id_cliente`),
-  UNIQUE INDEX `cpf_cliente_UNIQUE` (`cpf_cliente` ASC) VISIBLE)
+  UNIQUE INDEX `cpf_cliente_UNIQUE` (`cpf_cliente` ASC) )
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`funcionarios`
+-- Table `concessionaria2122n`.`funcionarios`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`funcionarios` (
+CREATE TABLE IF NOT EXISTS `concessionaria2122n`.`funcionarios` (
   `id_funcionario` INT NOT NULL AUTO_INCREMENT,
   `nome_funcionario` VARCHAR(100) NOT NULL,
   `telefone_funcionario` VARCHAR(20) NULL,
@@ -46,9 +46,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`marca`
+-- Table `concessionaria2122n`.`marca`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`marca` (
+CREATE TABLE IF NOT EXISTS `concessionaria2122n`.`marca` (
   `id_marca` INT NOT NULL AUTO_INCREMENT,
   `nome_marca` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_marca`))
@@ -56,9 +56,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`modelo`
+-- Table `concessionaria2122n`.`modelo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`modelo` (
+CREATE TABLE IF NOT EXISTS `concessionaria2122n`.`modelo` (
   `id_modelo` INT NOT NULL AUTO_INCREMENT,
   `nome_modelo` VARCHAR(45) NOT NULL,
   `cor_modelo` VARCHAR(20) NULL,
@@ -66,19 +66,19 @@ CREATE TABLE IF NOT EXISTS `mydb`.`modelo` (
   `tipo_modelo` VARCHAR(45) NULL,
   `marca_id_marca` INT NOT NULL,
   PRIMARY KEY (`id_modelo`, `marca_id_marca`),
-  INDEX `fk_modelo_marca_idx` (`marca_id_marca` ASC) VISIBLE,
+  INDEX `fk_modelo_marca_idx` (`marca_id_marca` ASC) ,
   CONSTRAINT `fk_modelo_marca`
     FOREIGN KEY (`marca_id_marca`)
-    REFERENCES `mydb`.`marca` (`id_marca`)
+    REFERENCES `concessionaria2122n`.`marca` (`id_marca`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `mydb`.`venda`
+-- Table `concessionaria2122n`.`venda`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`venda` (
+CREATE TABLE IF NOT EXISTS `concessionaria2122n`.`venda` (
   `id_venda` INT NOT NULL AUTO_INCREMENT,
   `data_venda` DATE NOT NULL,
   `valor_venda` DECIMAL(10,2) NOT NULL,
@@ -86,22 +86,22 @@ CREATE TABLE IF NOT EXISTS `mydb`.`venda` (
   `funcionarios_id_funcionario` INT NOT NULL,
   `modelo_id_modelo` INT NOT NULL,
   PRIMARY KEY (`id_venda`, `cliente_id_cliente`, `funcionarios_id_funcionario`, `modelo_id_modelo`),
-  INDEX `fk_venda_cliente1_idx` (`cliente_id_cliente` ASC) VISIBLE,
-  INDEX `fk_venda_funcionarios1_idx` (`funcionarios_id_funcionario` ASC) VISIBLE,
-  INDEX `fk_venda_modelo1_idx` (`modelo_id_modelo` ASC) VISIBLE,
+  INDEX `fk_venda_cliente1_idx` (`cliente_id_cliente` ASC) ,
+  INDEX `fk_venda_funcionarios1_idx` (`funcionarios_id_funcionario` ASC) ,
+  INDEX `fk_venda_modelo1_idx` (`modelo_id_modelo` ASC) ,
   CONSTRAINT `fk_venda_cliente1`
     FOREIGN KEY (`cliente_id_cliente`)
-    REFERENCES `mydb`.`cliente` (`id_cliente`)
+    REFERENCES `concessionaria2122n`.`cliente` (`id_cliente`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_venda_funcionarios1`
     FOREIGN KEY (`funcionarios_id_funcionario`)
-    REFERENCES `mydb`.`funcionarios` (`id_funcionario`)
+    REFERENCES `concessionaria2122n`.`funcionarios` (`id_funcionario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_venda_modelo1`
     FOREIGN KEY (`modelo_id_modelo`)
-    REFERENCES `mydb`.`modelo` (`id_modelo`)
+    REFERENCES `concessionaria2122n`.`modelo` (`id_modelo`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
