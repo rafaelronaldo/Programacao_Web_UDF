@@ -1,1 +1,24 @@
 <h1>Cadastrar Modelo</h1>
+<form action="?page=salvar-modelo" method="POST">
+    <input type="hidden" name="modeloacao" value="cadastrar">
+    <div class="mb-3">
+        <label>Nome do Modelo
+            <input type="text" name="nome_modelo" class="form-control">
+        </label>
+    </div>
+    <div class="mb-3">
+        <label>Cor da Modelo
+            <input type="text" name="cor_modelo" class="form-control">
+        </label>
+    </div>
+    <div class="mb-3">
+        <label>Ano do Modelo
+            <input type="date" name="ano_modelo" class="form-control">
+        </label>
+    </div>
+    <div class="mb-3">
+        <label>Tipo do Modelo
+            <input type="text" name="tipo_modelo" class="form-control">
+        </label>
+    </div>
+</form>
