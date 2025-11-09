@@ -5,4 +5,7 @@
         <label>Nome Marca
             <input type="text" name="nome_marca" class="form-control">
         </label>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
 </form>

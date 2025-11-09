@@ -4,7 +4,7 @@ switch ($_REQUEST['acao']) {
     case 'cadastrar':
         $nome = $_POST['nome_marca'];
     
-        $sql = "INSERT INTO 
+        $sql = "INSERT INTO marca
         (nome_marca) 
         VALUES ('{$nome}')";
 

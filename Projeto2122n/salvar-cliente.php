@@ -10,7 +10,7 @@ switch ($_REQUEST['acao']) {
         $dt_nasc = $_POST['dt_nasc_cliente'];
         
 
-        $sql = "INSERT INTO clientes 
+        $sql = "INSERT INTO cliente 
         (nome_cliente, cpf_cliente, telefone_cliente, email_cliente, endereco_cliente, dt_nasc_cliente) 
         VALUES ('{$nome}', '{$cpf}', '{$telefone}', '{$email}', '{$endereco}', '{$dt_nasc}')";
 
