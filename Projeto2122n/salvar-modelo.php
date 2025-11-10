@@ -7,7 +7,7 @@ switch ($_REQUEST['acao']) {
         $ano = $_POST['ano_modelo'];
         $tipo = $_POST['tipo_modelo'];
 
-        $sql = "INSERT INTO modelos 
+        $sql = "INSERT INTO modelo 
         (nome_modelo, cor_modelo, ano_modelo, tipo_modelo) 
         VALUES ('{$nome}', '{$cor}', '{$ano}', '{$tipo}')";
 

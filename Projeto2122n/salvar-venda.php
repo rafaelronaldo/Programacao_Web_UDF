@@ -5,7 +5,7 @@ switch ($_REQUEST['acao']) {
         $data = $_POST['data_venda'];
         $valor = $_POST['valor_venda'];
         
-        $sql = "INSERT INTO  
+        $sql = "INSERT INTO venda
         (data_venda, valor_venda) 
         VALUES ('{$data}', '{$valor}')";
 

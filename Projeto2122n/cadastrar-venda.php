@@ -10,4 +10,7 @@
         <label>Valor da Venda
             <input type="text" name="valor_venda" class="form-control">
         </label>
+        <div class="mb-3">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
 </form>

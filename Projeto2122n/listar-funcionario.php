@@ -1,6 +1,6 @@
 <h1>Listar Funcionário</h1>
 <?php
-$sql= "SELECT * FROM funcionario";
+$sql= "SELECT * FROM funcionarios";
 $res = $conn->query($sql);
 $qtd= $res->num_rows;
 if($qtd > 0){
@@ -11,6 +11,7 @@ if($qtd > 0){
     print "<th>Nome</th>";
     print "<th>E-mail</th>";
     print "<th>Telefone</th>";
+    
 print "</tr>";
 while($row=$res->fetch_object()){
     print "<tr>";
