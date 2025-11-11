@@ -14,18 +14,24 @@ if($qtd > 0){
     print "<th>E-mail</th>";
     print "<th>Endereço</th>";
     print "<th>Data de Nascimento</th>";
-    
-print "</tr>";
-while($row=$res->fetch_object()){
-    print "<tr>";
-    print "<td>" .$row->id_cliente."</td>";
-    print "<td>" .$row->nome_cliente."</td>";
-    print "<td>" .$row->cpf_cliente."</td>";
-    print "<td>" .$row->telefone_cliente."</td>";
-    print "<td>" .$row->email_cliente."</td>";
-    print "<td>" .$row->endereco_cliente."</td>";
-    print "<td>" .$row->dt_nasc_cliente."</td>";
+    print "<th>Ações</th>";
     print "</tr>";
+    while($row=$res->fetch_object()){
+        print "<tr>";
+        print "<td>" .$row->id_cliente."</td>";
+        print "<td>" .$row->nome_cliente."</td>";
+        print "<td>" .$row->cpf_cliente."</td>";
+        print "<td>" .$row->telefone_cliente."</td>";
+        print "<td>" .$row->email_cliente."</td>";
+        print "<td>" .$row->endereco_cliente."</td>";
+        print "<td>" .$row->dt_nasc_cliente."</td>";
+        print "<td>
+                <button class='btn btn-success' onclick=\"location.href='?page=editar-cliente&id_cliente={$row->id_cliente}';\">Editar</button>
+
+                <button class='btn btn-danger' onclick=\"if(confirm('Tem certeza que deseja excluir?')){location.href='?page=salvar-cliente&acao=excluir&id_cliente={$row->id_cliente}';}else{false;}\">Excluir</button>
+                </td>";
+        print "</tr>";
+        print "</tr>";
 
 }
 print "</table>";

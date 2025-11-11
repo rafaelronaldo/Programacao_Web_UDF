@@ -9,13 +9,13 @@ if($qtd > 0){
     print "<tr>";
     print "<th>#</th>";
     print "<th>Nome</th>";
-    
-print "</tr>";
-while($row=$res->fetch_object()){
-    print "<tr>";
-    print "<td>" .$row->id_marca."</td>";
-    print "<td>" .$row->nome_marca."</td>";
+    print "<th>Ações</th>";
     print "</tr>";
+    while($row=$res->fetch_object()){
+        print "<tr>";
+        print "<td>" .$row->id_marca."</td>";
+        print "<td>" .$row->nome_marca."</td>";
+        print "</tr>";
 
 }
 print "</table>";
