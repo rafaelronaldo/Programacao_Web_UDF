@@ -21,7 +21,25 @@
             <input type="text" name="tipo_modelo" class="form-control">
         </label>
     </div>
+	
+	<div class="mb-3">
+        <label>Marca
+            <select name="marca_id_marca" class="form-control" required>
+                <option value="">Selecione a marca</option>
+                <?php
+                    $sql = "SELECT * FROM marca";
+                    $res = $conn->query($sql);
+                    while($row = $res->fetch_object()){
+                        echo "<option value='{$row->id_marca}'>{$row->nome_marca}</option>";
+                    }
+                ?>
+            </select>
+        </label>
+    </div>
+
     <div class="mb-3">
         <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
+
+
 </form>

@@ -21,10 +21,35 @@ switch ($_REQUEST['acao']) {
         break;
 
     case 'editar':
+        $nome = $conn->real_escape_string($_POST['nome_marca']);  // impede erros de sintaxe
+        $id_marca = intval($_REQUEST['id_marca']); // segurança
 
+        $sql = "UPDATE marca SET nome_marca='$nome' WHERE id_marca=$id_marca";
+
+        $res = $conn->query($sql);
+
+        if($res == true){
+            print"<script>alert('Editou com sucesso!');</script>";
+            print "<script>location.href='?page=listar-marca';</script>";
+        }else{
+            print"<script>alert('Não editou');</script>";
+            print"<script>location.href='?page=listar-marca';</script>";
+        }
         break;
 
-    case 'excluir':
+        
 
+    case 'excluir':
+        $sql = "DELETE FROM marca WHERE id_marca=".$_REQUEST['id_marca'];
+
+        $res = $conn->query($sql);
+
+        if($res == true){
+            print"<script>alert('Excluiu com sucesso!');</script>";
+            print "<script>location.href='?page=listar-marca';</script>";
+        }else{
+            print"<script>alert('Não excluiu');</script>";
+            print"<script>location.href='?page=listar-marca';</script>";
+        }
         break;
 }
