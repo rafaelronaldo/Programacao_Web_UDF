@@ -12,17 +12,24 @@
         </label>
     </div>
     <div class="mb-3">
-        <label>Ano do Modelo
-            <input type="date" name="ano_modelo" class="form-control">
-        </label>
-    </div>
+    <label>Ano do Modelo
+        <input 
+            type="number" 
+            name="ano_modelo" 
+            class="form-control" 
+            placeholder="AAAA" 
+            min="1900" 
+            max="<?php echo date('Y'); ?>"
+            required>
+    </label>
+	</div>
     <div class="mb-3">
         <label>Tipo do Modelo
             <input type="text" name="tipo_modelo" class="form-control">
         </label>
     </div>
-	
-	<div class="mb-3">
+
+    <div class="mb-3">
         <label>Marca
             <select name="marca_id_marca" class="form-control" required>
                 <option value="">Selecione a marca</option>

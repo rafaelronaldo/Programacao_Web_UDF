@@ -11,17 +11,20 @@
     <input type="hidden" name="id_funcionario" value="<?php print $row->id_funcionario; ?>">
     <div class="mb-3">
         <label>Nome
-            <input type="text" name="nome_funcionario" class="form-control" value="<?php print $row->nome_funcionario; ?>">
+            <input type="text" name="nome_funcionario" class="form-control"
+                value="<?php print $row->nome_funcionario; ?>">
         </label>
     </div>
     <div class="mb-3">
         <label>E-mail
-            <input type="email" name="email_funcionario" class="form-control" value="<?php print $row->email_funcionario; ?>">
+            <input type="email" name="email_funcionario" class="form-control"
+                value="<?php print $row->email_funcionario; ?>">
         </label>
     </div>
     <div class="mb-3">
         <label>Telefone
-            <input type="text" name="telefone_funcionario" class="form-control" value="<?php print $row->telefone_funcionario; ?>">
+            <input type="text" name="telefone_funcionario" class="form-control"
+                value="<?php print $row->telefone_funcionario; ?>">
         </label>
     </div>
     <div class="mb-3">

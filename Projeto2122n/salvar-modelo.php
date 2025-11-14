@@ -31,10 +31,36 @@ switch ($_REQUEST['acao']) {
         break;
 
     case 'editar':
+        $nome = $_POST['nome_modelo'];
+        $cor = $_POST['cor_modelo'];
+        $ano = $_POST['ano_modelo'];
+        $tipo = $_POST['tipo_modelo'];
+        $marca = intval($_POST['marca_id_marca']); 
 
+        $sql = "UPDATE modelo SET nome_modelo='{$nome}', cor_modelo='{$cor}', ano_modelo='{$ano}', tipo_modelo='{$tipo}', marca_id_marca='{$marca}'  WHERE id_modelo=".$_REQUEST['id_modelo'];
+
+        $res = $conn->query($sql);
+
+        if($res == true){
+            print"<script>alert('Editou com sucesso!');</script>";
+            print "<script>location.href='?page=listar-modelo';</script>";
+        }else{
+            print"<script>alert('Não editou');</script>";
+            print"<script>location.href='?page=listar-modelo';</script>";
+        }
         break;
 
     case 'excluir':
+        $sql = "DELETE FROM modelo WHERE id_modelo=".$_REQUEST['id_modelo'];
 
+        $res = $conn->query($sql);
+
+        if($res == true){
+            print"<script>alert('Excluiu com sucesso!');</script>";
+            print "<script>location.href='?page=listar-modelo';</script>";
+        }else{
+            print"<script>alert('Não excluiu');</script>";
+            print"<script>location.href='?page=listar-modelo';</script>";
+        }
         break;
 }
